@@ -305,13 +305,17 @@ does not "opens java.lang" to unnamed module @1bc6a36e
             </section>
             <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
                 <h3>Have you ever used unsafe?</h3>
-                <p>I mean other than using the JDK that is oviously using its internals.</p>
+                <p>I mean other than using the JDK that is obviously using its internals.</p>
                 <p class="fragment fade-up">YOU DID.</p>
                 <p class="fragment fade-up">if you are a Java programmer and used</p>
                 <p class="fragment fade-up">Hibernate</p>
                 <p class="fragment fade-up">Spring</p>
                 <p class="fragment fade-up">Mockito</p>
-                <p class="fragment fade-up">...</p>
+                <p class="fragment fade-up"><font size="-1">Netty,
+                    Hazelcast, Cassandra,
+                    EasyMock, JMock, PowerMock, Scala Specs, Spock,
+                    Robolectric, Grails, Neo4j, Akka, Apache Kafka, Apache Wink,
+                    Apache Storm, Apache Hadoop, Apache Continuum, ...</font></p>
             </section>
             <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
                 <h3>What ???</h3>
@@ -385,7 +389,7 @@ does not "opens java.lang" to unnamed module @1bc6a36e
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <h3>So we can not...</h3>
             <p>reflectively access IntegerCache</p>
-            <p  class="fragment fade-up">not even via reflective access provided by unsafe</p>
+            <p class="fragment fade-up">not even via reflective access provided by unsafe</p>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <h3>So we can not...</h3>
@@ -454,7 +458,7 @@ module integer.hack {
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <h3>Keep Calm</h3>
-            <p>unsafe is still there</p>
+            <p>unsafe is still there (by default)</p>
             <p>but you have to be really desperate</p>
             <p class="fragment fade-up">but it will</p>
         </section>
@@ -508,6 +512,11 @@ module integer.hack {
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
+
+
+
+
 </script>
 </body>
 </html>
