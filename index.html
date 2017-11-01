@@ -57,7 +57,7 @@ private static class IntegerCache {
             <p>it is used inside Integer.java</p>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
-            <h3>The it is used in valueOf()</h3>
+            <h3>It is used in valueOf()</h3>
             <pre><code class="java" data-trim contenteditable>
 public static Integer valueOf(int i) {
     if (i >= IntegerCache.low && i <= IntegerCache.high)
@@ -72,6 +72,7 @@ public static Integer valueOf(int i) {
             <blockquote>I overwrote the cache using reflection?</blockquote>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
+            <h3>Would it be weird?</h3>
             <pre><code class="java" data-trim contenteditable data-noescape>
         if( 1 + (Integer)1 == 2 ){
             System.out.println("OK");
@@ -339,6 +340,11 @@ does not "opens java.lang" to unnamed module @1bc6a36e
             <p class="fragment fade-up">So what?</p>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
+            <h3>There are two roads</h3>
+            <p class="fragment fade-up">Stay compatible, no new features, no change, ... Java is the new COBOL?</p>
+            <p class="fragment fade-up">Limit backward compatibility</p>
+        </section>
+        <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <blockquote>
                 When implementation becomes API backward compatibility hinders the development of
                 the implementation.
@@ -360,24 +366,29 @@ does not "opens java.lang" to unnamed module @1bc6a36e
             <p class="fragment fade-up">1.2 String.hashCode() has changed</p>
             <p class="fragment fade-up">1.4 can not import class from default package</p>
             <p class="fragment fade-up">1.5 BigDecimal.toString() was changed</p>
+            <p class="fragment fade-up">enum was introduced as keyword in Java 1.5</p>
             <p class="fragment fade-up">... not to mention concurrency</p>
             <p class="fragment fade-up">and some other</p>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <h3>But all these were</h3>
             <p>just small fixes and Java tried to remain backward compatible</p>
-            <p class="fragment fade-up">from now on.... limited</p>
+            <p class="fragment fade-up">from now on.... backward compatibility is limited</p>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <h3>We can deprecate</h3>
             <p>@deprecated( forRemoval=true )</p>
             <p>_ is invalid as variable</p>
-            <p class="fragment fade-up"><font size="" -1">there was a hint already</font></p>
-            <p>unsafe is not available any more</p>
+            <p class="fragment fade-up"><font size="-1">there was a hint already</font></p>
+            <p class="fragment fade-up">unsafe is not available any more</p>
         </section>
-
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
-            <h3>What if...</h3>
+            <h3>So we can not...</h3>
+            <p>reflectively access IntegerCache</p>
+            <p  class="fragment fade-up">not even via reflective access provided by unsafe</p>
+        </section>
+        <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
+            <h3>So we can not...</h3>
             <pre><code class="java" data-trim contenteditable data-noescape>
 public static void main(String[] args) throws Exception {
     Class usf = Class.forName("sun.misc.Unsafe");
@@ -445,18 +456,31 @@ module integer.hack {
             <h3>Keep Calm</h3>
             <p>unsafe is still there</p>
             <p>but you have to be really desperate</p>
-            <p>and it will</p>
+            <p class="fragment fade-up">but it will</p>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <h3 class="fragment fade-out">Disappear</h3>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <h3>Take-away</h3>
-            <p class="fragment fade-up"></p>
+            <p>what we have learned from all this</p>
         </section>
         <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1c.png">
             <p>Java got matured</p>
-            <p class="fragment fade-up"></p>
+            <p class="fragment fade-up">it can not grow hackable and it will not be hackable</p>
+            <p class="fragment fade-up">but it will grow and stay with us for long long time</p>
+            <p class="fragment fade-up">it is complex... ever more complex</p>
+            <p class="fragment fade-up">which is GOOD!</p>
+            <p class="fragment fade-up">we will have jobs!!!</p>
+        </section>
+        <section data-background-image="images/WJAX_2017_Template_1920x1080_41086_v1a.png">
+            <p>&nbsp;</p>
+            <h3>thanks for your patience</h3>
+            <p>Peter Verhas, EPAM Systems</p>
+            <p>JAVPREB50 --- eB </p>
+            <p>JAVA9PR15 --- print</p>
+            <p><i>06 November to 15 November 2017</i></p>
+            <img src="images/epam-logo.png" width="20%" align="left">
         </section>
     </div>
 </div>
@@ -464,7 +488,6 @@ module integer.hack {
 <script src="js/reveal.js"></script>
 
 <script>
-
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
@@ -485,13 +508,6 @@ module integer.hack {
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
-
-
-
-
-
-
-
 </script>
 </body>
 </html>
